@@ -38,6 +38,9 @@ Open browser: http://localhost:5000
 https://yolo-player-detection.onrender.com/
  
 ## Screenshot
-<img width="1845" height="942" alt="result_17" src="https://github.com/user-attachments/assets/c595cec0-cb6d-4b37-a1d9-8cc24a604064" />
+<img width="480" height="388" alt="image" src="https://github.com/user-attachments/assets/236a5734-c830-4dcd-90d4-5f16570ed1ba" />
+<img width="483" height="387" alt="image" src="https://github.com/user-attachments/assets/bbfd7d1d-a9c9-4801-b481-3e40d5e737cb" />
+
+
 
 
