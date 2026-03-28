@@ -4,8 +4,7 @@ import cv2
 import os
 from werkzeug.utils import secure_filename
 import numpy as np
-import torch
-torch.serialization._legacy_load = torch.load
+
 
 app = Flask(__name__)
 
