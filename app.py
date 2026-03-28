@@ -8,7 +8,6 @@ import numpy as np
 
 app = Flask(__name__)
 
-# configuration
 UPLOAD_FOLDER = 'uploads'
 RESULT_FOLDER = 'results'
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -19,7 +18,6 @@ os.makedirs(RESULT_FOLDER, exist_ok=True)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['RESULT_FOLDER'] = RESULT_FOLDER
 
-# load yolo model
 model = YOLO('best.pt')
 print("model loaded successfully")
 
@@ -41,26 +39,22 @@ def predict():
         return render_template('index.html', error='no file selected')
     
     if file and allowed_file(file.filename):
-        # save uploaded file
+        # save the image
         filename = secure_filename(file.filename)
         filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
         file.save(filepath)
         
-        # run detection
+        # detect players with yolo
         results = model(filepath)
         
-        # get the first result
         result = results[0]
         
-        # save result image
         result_filename = 'result_' + filename
         result_path = os.path.join(app.config['RESULT_FOLDER'], result_filename)
         
-        # plot results on image
         img = result.plot()
         cv2.imwrite(result_path, img)
         
-        # count detections
         detections = []
         for box in result.boxes:
             cls_id = int(box.cls[0])
@@ -71,7 +65,7 @@ def predict():
                 'confidence': f"{conf:.2%}"
             })
         
-        # count players
+        # count how many players from rach team
         barca_count = sum(1 for d in detections if 'barcelona' in d['class'].lower())
         real_count = sum(1 for d in detections if 'real' in d['class'].lower() or 'madrid' in d['class'].lower())
         
