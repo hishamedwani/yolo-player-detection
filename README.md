@@ -35,7 +35,9 @@ docker run -p 5000:5000 yolo-flask-app
 Open browser: http://localhost:5000
  
 ## Live Demo
-[Deployment link coming soon]
+https://yolo-player-detection.onrender.com/
  
-## Screenshots
-[Screenshots coming soon]
+## Screenshot
+<img width="1845" height="942" alt="result_17" src="https://github.com/user-attachments/assets/c595cec0-cb6d-4b37-a1d9-8cc24a604064" />
+
+
